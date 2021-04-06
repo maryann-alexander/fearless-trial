@@ -6,10 +6,10 @@ countapi.visits().then((result) => {
   console.log(result.value);
 });
 countapi.get('https://api.countapi.xyz/get/purplecow/1ccb732e-b55a-4404-ad3f-0f99c02fe44e', 'test').then((result) => {
-  return result
+  return result.value
 });
 countapi.hit('https://api.countapi.xyz/update/purplecow/1ccb732e-b55a-4404-ad3f-0f99c02fe44e/?amount=1', 'visits').then((result) => {
-  return result
+  return result.value
 });
 
 const App = () => {
@@ -19,10 +19,10 @@ const App = () => {
 
   const fetchData = async () => {
     setClicked(true);
-    const response = await countapi.get(baseURL, 'test').then((result) => {
-      return result
+    const response = await countapi.visits().then((result) => {
+      return result.value
     });
-    setCount(response.data.value);
+    setCount(response);
 }
 
   return (
@@ -33,7 +33,7 @@ const App = () => {
 
         <div id="visits">{count}</div>
 
-        <button onclick={fetchData}>Hit API</button>
+        <button onClick={fetchData}>Hit API</button>
 
       </header>
     </div>

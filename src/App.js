@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import countapi from 'countapi-js';
+
+countapi.visits().then((result) => {
+  console.log(result.value);
+});
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <p>Page View Count</p>
+
+        <div id="visits">...</div>
+
+        <button onclick="clicked()">Hit API</button>
+
       </header>
     </div>
   );

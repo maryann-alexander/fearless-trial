@@ -2,20 +2,10 @@ import React, {useState} from "react";
 import './App.css';
 import countapi from 'countapi-js';
 
-countapi.visits().then((result) => {
-  console.log(result.value);
-});
-countapi.get('https://api.countapi.xyz/get/purplecow/1ccb732e-b55a-4404-ad3f-0f99c02fe44e', 'test').then((result) => {
-  return result.value
-});
-countapi.hit('https://api.countapi.xyz/update/purplecow/1ccb732e-b55a-4404-ad3f-0f99c02fe44e/?amount=1', 'visits').then((result) => {
-  return result.value
-});
 
 const App = () => {
   const [count, setCount] = useState(null);
   const [clicked, setClicked] = useState(false);
-  const baseURL = "https://api.countapi.xyz/get/purplecow/1ccb732e-b55a-4404-ad3f-0f99c02fe44e"
 
   const fetchData = async () => {
     setClicked(true);
